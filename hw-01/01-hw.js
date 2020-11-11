@@ -1,6 +1,6 @@
-let tomatoPrice = 15.678;
-let cucumberPrice = 123.965;
-let orangePrice = 90.2345;
+const tomatoPrice = 15.678;
+const cucumberPrice = 123.965;
+const orangePrice = 90.2345;
 
 
 let productsMaxPrice = Math.max(tomatoPrice, cucumberPrice, orangePrice);
