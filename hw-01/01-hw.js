@@ -2,6 +2,7 @@ const tomatoPrice = 15.678;
 const cucumberPrice = 123.965;
 const orangePrice = 90.2345;
 
+let usersAmount = 500;
 
 let productsMaxPrice = Math.max(tomatoPrice, cucumberPrice, orangePrice);
 console.log(`Max price is: ${productsMaxPrice}`);
@@ -31,10 +32,10 @@ if ((totalSumOfIntegerPartsForProducts % 2) == 0) {
 }
 console.log(`Sum of all products (only integer parts) is even: ${isSumEven}`);
 
-let remainderAfterPayment = 500 - totalSumOfAllProducts;
+let remainderAfterPayment = usersAmount - totalSumOfAllProducts;
 console.log(`Remainder after 500 grn were paid is: ${remainderAfterPayment}`);
 
-let averageValueOfProductPrices = (totalSumOfAllProducts/3).toFixed(2);
+let averageValueOfProductPrices = parseFloat((totalSumOfAllProducts/3).toFixed(2));
 console.log(`Average value of products prices is: ${averageValueOfProductPrices}`);
 
 
@@ -44,7 +45,7 @@ console.log(`Discount is ${randomDiscountRate}`);
 let discountValue = Math.floor((totalSumOfAllProducts * randomDiscountRate) / 100);
 console.log(`Discount value is ${discountValue}`);
 
-let sumToPayWithDiscount = (totalSumOfAllProducts - discountValue).toFixed(2);
+let sumToPayWithDiscount = parseFloat((totalSumOfAllProducts - discountValue).toFixed(2));
 console.log(`Sum to pay (with discount) is ${sumToPayWithDiscount}`);
 
 let costPrice = Math.trunc(totalSumOfAllProducts / 2);
