@@ -40,7 +40,7 @@ console.log(`Average value of products prices is: ${averageValueOfProductPrices}
 
 
 const randomDiscountRate = Math.floor(Math.random() * 100) + 1;
-console.log(`Discount is ${randomDiscountRate}`);
+console.log(`Discount is ${randomDiscountRate} %`);
 
 const discountValue = Math.floor((totalSumOfAllProducts * randomDiscountRate) / 100);
 console.log(`Discount value is ${discountValue}`);
