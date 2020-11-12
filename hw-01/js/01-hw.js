@@ -24,7 +24,7 @@ console.log(`Total sum of all products (only integer parts) is: ${totalSumOfInte
 const roundedTotalSum = Math.ceil(totalSumOfIntegerPartsForProducts / 100) * 100;
 console.log(`Total sum (rounded up to hundreds) is: ${roundedTotalSum}`);
 
-let isSumEven = undefined;
+let isSumEven;
 if ((totalSumOfIntegerPartsForProducts % 2) == 0) {
 	isSumEven = true;
 } else {
