@@ -1,19 +1,19 @@
-let n;
-let m;
+let fromNumber;
+let toNumber;
 
 do {
-	n = +prompt("Please enter first INTEGER number (not empty)");
-} while (!n || !Number.isInteger(n));
+	fromNumber = +prompt("Please enter first INTEGER number (not empty)");
+} while (!fromNumber || !Number.isInteger(fromNumber));
 
 do {
-	m = +prompt(`Please enter second INTEGER number (it should be equal or greater than ${n})`);
-} while (!m || !Number.isInteger(m) || !(m >= n));
+	toNumber = +prompt(`Please enter second INTEGER number (it should be equal or greater than ${fromNumber})`);
+} while (!toNumber || !Number.isInteger(toNumber) || !(toNumber >= fromNumber));
 
 const EXCLUDE_EVEN_NUMBERS = confirm("Do you want to exclude even numbers?");
 
 let totalSum = 0;
 
-for (let number = n; number <= m; number++) {
+for (let number = fromNumber; number <= toNumber; number++) {
 
 	if (EXCLUDE_EVEN_NUMBERS) {
 		if (number % 2 !== 0) {
@@ -26,4 +26,4 @@ for (let number = n; number <= m; number++) {
 	}
 }
 
-alert(`Sum from ${n} to ${m} (exclude even numbers: ${EXCLUDE_EVEN_NUMBERS}) is ${totalSum}`);
+alert(`Sum from ${fromNumber} to ${toNumber} (exclude even numbers: ${EXCLUDE_EVEN_NUMBERS}) is ${totalSum}`);
