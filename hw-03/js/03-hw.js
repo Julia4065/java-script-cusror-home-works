@@ -1,6 +1,14 @@
 getMaxDigit = (number) => {
     let numberDigits = number.toString().split('').map(Number);
-    return Math.max(...numberDigits);
+    let maxDigit = 0;
+
+    numberDigits.forEach(number => {
+        if (number > maxDigit) {
+            maxDigit = number;
+        }
+    });
+
+    return maxDigit;
 }
 
 powOfNumber = (number, power) => {
@@ -17,8 +25,9 @@ formatName = (name) => {
     return name.charAt(0).toUpperCase() + name.slice(1, name.length).toLowerCase();
 }
 
-let taxPercent = 19.5;
+
 getSumAfterTaxes = (initialSum) => {
+    let taxPercent = 19.5;
     return initialSum - (initialSum * taxPercent) / 100;
 }
 
@@ -36,11 +45,11 @@ countLetterInWord = (letterToSearch, word) => {
     return numberOfLetterOccurrences;
 }
 
-const dollarToUahCcyRate = 28.5;
-const dollarSign = "$";
-const uahSign = "uah";
-
 convertCurrency = (amount) => {
+    const dollarToUahCcyRate = 28.5;
+    const dollarSign = "$";
+    const uahSign = "uah";
+
     if (amount.includes(dollarSign)) {
         return `${amount.slice(0, amount.length - dollarSign.length) * dollarToUahCcyRate}UAH`;
     } else if (amount.toLowerCase().includes(uahSign)) {
