@@ -24,26 +24,15 @@ const students = [{
     }
 }];
 
-
-getStudentByName = (studentName) => {
-    return students.find((student) => {
-        return student.name === studentName;
-    });
-}
-
-
-getSubjects = (studentName) => {
-    const searchedStudent = getStudentByName(studentName);
-
-    return Object.keys(searchedStudent?.subjects).map((subject) => {
+getSubjects = (student) => {
+    return Object.keys(student?.subjects).map((subject) => {
         return (subject[0].toUpperCase() + subject.slice(1)).replace("_", " ");
     });
 };
 
 
-getAverageMark = (studentName) => {
-    const searchedStudent = getStudentByName(studentName);
-    const allMarks = [].concat(...Object.values(searchedStudent.subjects));
+getAverageMark = (student) => {
+    const allMarks = [].concat(...Object.values(student.subjects));
     const totalSum = allMarks.reduce((total, mark) => {
         return total += mark;
     }, 0);
@@ -53,15 +42,10 @@ getAverageMark = (studentName) => {
 };
 
 
-getStudentInfo = (studentName) => {
+getStudentInfo = (student) => {
 
-    const searchedStudent = getStudentByName(studentName);
-
-    return {
-        course: searchedStudent.course,
-        name: searchedStudent.name,
-        averageMark: getAverageMark(studentName)
-    }
+    const { name, course } = student;
+    return {course, name, averageMark: getAverageMark(student)}
 };
 
 
@@ -77,25 +61,11 @@ getStudentsNames = (students) => {
 
 getBestStudent = (students) => {
 
-    const studentNames = getStudentsNames(students);
+    const allStudentInfo = students.map((student) => getStudentInfo(student));
+    const sortedStudents = allStudentInfo.sort((a, b) => b.averageMark - a.averageMark);
+    return sortedStudents[0].name;
 
-    let bestStudentName;
-
-    studentNames.reduce((averageMark, studentName) => {
-
-        const currentAverageMark = getAverageMark(studentName);
-
-        if (currentAverageMark > averageMark) {
-            bestStudentName = studentName;
-            return currentAverageMark;
-        } else {
-            return averageMark;
-        }
-    }, 0);
-
-    return bestStudentName;
 }
-
 
 calculateWordLetters = (string) => {
     const letters = string.split("");
@@ -110,9 +80,9 @@ calculateWordLetters = (string) => {
 };
 
 
-console.log(getSubjects("Tanya"));
-console.log(getAverageMark("Tanya"));
-console.log(getStudentInfo("Tanya"));
+console.log(getSubjects(students[0]));
+console.log(getAverageMark(students[0]));
+console.log(getStudentInfo(students[0]));
 console.log(getStudentsNames(students));
 console.log(getBestStudent(students));
 console.log(calculateWordLetters("тест"));
