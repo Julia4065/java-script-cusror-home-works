@@ -17,7 +17,7 @@ class Student {
 
     set setMark(mark) {
         if (!this.isDismissed) {
-            this.marks.push(mark);
+            this.marks = [...this.marks, mark];
         }
     }
 
