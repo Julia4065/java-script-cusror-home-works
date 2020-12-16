@@ -21,4 +21,5 @@ generateBlocksInterval = () => {
     setInterval(generateBlocks, 1000);
 }
 
+
 generateBlocksInterval();
