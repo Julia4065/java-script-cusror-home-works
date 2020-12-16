@@ -11,5 +11,5 @@ letters.map((letter) => {
 })
 
 document.addEventListener('keydown', function (e) {
-    document.querySelectorAll("[data-letter='" + e.key + "']")[0].play();
+    document.querySelectorAll("[data-letter='" + e.key + "']")[0]?.play();
 });
